@@ -1,6 +1,35 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+
+   void movertorre(casa){ // função recursiva mover torre
+    if (casa > 0 )
+    {
+        printf("Direita\n");
+        movertorre(casa -1);
+    }
+   }
+
+   void moverbispo( casa){ //função recursiva mover bsipo
+     if (casa >0)
+     {
+        printf("Diagonal cima direita\n");
+        moverbispo(casa -1);
+     }  
+   }
+
+    void moverrainha( casa ){ //função recursiva mover rainha
+      if (casa > 0)
+      {
+        printf("Esquerda \n");
+        moverrainha(casa -1);
+      }
+      
+
+    }
+
+
+
    int main()  {
 
     int opcao, i, casa; // variaveis
@@ -35,39 +64,27 @@
          printf("Digite a quantas casas deseja andar com a Torre \n");
          scanf("%d", &casa);
 
-        int i = 0;
-        while (i <= casa )  /* condição repedição while/*/
-        {
-            printf("Direita\n ");
-            i++;
-        }
+         movertorre(casa);
+
         break;
 
     case 2:
         printf("Você escolheu o Bispo. \n");
         printf("Digite quantas casas quer andar como o Bispo \n"); // usuario escolher a quantidade de casas dejesa andar
         scanf("%d", &casa);
-        int b = 0;
-        do  // condição repetição do while
-        {
-            printf("Diagonal cima Direita \n");
-            b++; // incremento variavel
-        } while (b < casa );
+
+        moverbispo(casa);
         
-        break;
+    break;
 
     case 3:
         printf("Você escolheu a rainha\n");
         printf("Digite a quantidade de casas dejesa andar:");
         scanf("%d", &casa);
 
-        for ( i = 0; i < casa; i++)  // icremento variavel e confição repetição for
-        {
-            printf("Esquerda\n");
-        
-        }
-        
-        break;
+        moverrainha(casa);
+
+    break;
 
         
     case 4:
